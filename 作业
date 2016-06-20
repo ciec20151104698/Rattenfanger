@@ -1,4 +1,1260 @@
-作为开源代码库以及版本控制系统，Github拥有140多万开发者用户。随着越来越多的应用程序转移到了云上，Github已经成为了管理软件开发以及发现已有代码的首选方法[2]  。
-如前所述，作为一个分布式的版本控制系统，在Git中并不存在主库这样的概念，每一份复制出的库都可以独立使用，任何两个库之间的不一致之处都可以进行合并。
-GitHub可以托管各种git库，并提供一个web界面，但与其它像 SourceForge或Google Code这样的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull request”机制向项目负责人申请代码合并。已经有人将GitHub称为代码玩家的MySpace。
-在GitHub进行分支就像在Myspace（或Facebook…）进行交友一样，在社会关系图的节点中不断的连线。
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>   
+   
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>【Github教程】史上最全github使用方法：github入门到精通 - 水果君の日常
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="前言：APNs 协议在近两年的 WWDC 上改过两次，2015年12月17日更是推出了革命性的新特性。但在国内传播的博客、面试题里关于APNs的答案全都是旧的、错的。正文：对 APNs 的吐槽APNs 是 Apple Push Notification service 的简称（注意 APNs 的大小写, s不需要大写）。以下是我收集的一些关于 APNs 的吐槽，你先看下哪些吐槽比较“到位”：答案会" />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+       
+        <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">
+        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/skin-white/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/hcbbt/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/blue_green.css" />
+ 
+
+
+</head>
+<body>
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/hcbbt">水果君の日常</a></h2>
+            <h3>追随各位大神的脚步.... *新博客:illuz.github.io，本博客继续使用</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            
+                <li id="btnContents"><a href="http://blog.csdn.net/hcbbt?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/hcbbt?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/hcbbt/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "hcbbt";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/hcbbt";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://ask.csdn.net/subjects/9">
+<font color=blue>【专家问答】韦玮：Python基础编程实战专题</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://lib.csdn.net/base/swift/resource">
+<font color=red>【知识库】Swift资源大集合
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/csdnproduct/article/details/51668917">
+<font color=blue>【公告】博客新皮肤上线啦</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/robbin2015/article/details/51683764">
+<font color=red>快来领福利：C币、机械键盘
+</font></a>
+&nbsp;&nbsp;&nbsp;
+</font></a>
+</div>                        </div>
+                        
+
+
+
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+          
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Repost"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/hcbbt/article/details/11651229">
+        【Github教程】史上最全github使用方法：github入门到精通            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href='http://www.csdn.net/tag/github' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">github</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2013-09-13 16:41</span>
+            <span class="link_view" title="阅读次数">217492人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(17)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('【Github教程】史上最全github使用方法：github入门到精通','11651229');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(11651229,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            var lib = eval("("+$("#lib").attr("value")+")");
+            var html = "";
+            if (lib.err == 0) {
+                $.each(lib.data, function (i) {
+                    var obj = lib.data[i];
+                    //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                    html += ' <a href="' + obj.url + '" target="_blank">';
+                    html += ' <img src="' + obj.logo + '">';
+                    html += ' <em><b>' + obj.name + '</b></em>';
+                    html += ' </a>';
+                });
+                if (html != "") {
+                    setTimeout(function () {
+                        $("#lib").html(html);
+                        /*
+                        var testhtml = "";
+                        testhtml += '<a href="#">';
+                        testhtml += '<img src="http://img.knowledge.csdn.net/upload/base/1455589744328_328.jpg">';
+                        testhtml += '<em>Android知识库</em>';
+                        testhtml += '</a>';
+                        $(".embody_c").html(testhtml);
+                        */
+                        $("#embody").show();
+                    }, 100);
+                }
+            }          
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('2232637','hcbbt','top','11651229');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">=====转帖收藏=====<em>（20）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/hcbbt/article/category/2232637"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_2232637">                            
+                            </ul>
+                        </div>
+                    </label>                    
+                    <label  onclick="GetCategoryArticles('2232641','hcbbt','top','11651229');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">+资源<em>（2）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/hcbbt/article/category/2232641"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_2232641">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+
+<p><span style="color:rgb(51,51,51); font-family:微软雅黑,Arial,Helvetica,sans-serif; font-size:14.399999618530273px; line-height:28px">原文&nbsp;</span><a target="_blank" target="_blank" href="http://www.eoeandroid.com/thread-274556-1-1.html" rel="nofollow" style="color:rgb(50,123,185); text-decoration:none; margin:0px; padding:0px; font-family:微软雅黑,Arial,Helvetica,sans-serif; word-break:break-all; outline:none; font-size:14.399999618530273px; line-height:28px">http://www.eoeandroid.com/thread-274556-1-1.html</a><br>
+</p>
+<p><span style="font-size:18px; word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun"><span style="color:#ff0000; word-wrap:break-word"><span style="word-wrap:break-word; font-weight:700">【初识Github】</span></span></span></p>
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">首先让我们大家一起喊一句“Hello Github”。YEAH!就是这样。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。目前，包括Rubinius和Merb在内的很多知名项目都使用了Git。Git同样可以被诸如Capistrano和Vlad
+ the Deployer这样的部署工具所使用。同样，eoe.cn客户端的源码也托管在github上。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<div align="center" style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+</div>
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">GitHub可以托管各种git库，并提供一个web界面，但与其它像 SourceForge或Google Code这样的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull
+ request”机制向项目负责人申请代码合并。已经有人将GitHub称为代码玩家的MySpace。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">在GitHub进行分支就像在Myspace（或Facebook…）进行交友一样，在社会关系图的节点中不断的连线。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">GitHub 使用 git 分布式版本控制系统，而 git 最初是 Linus Torvalds 为帮助Linux开发而创造的，它针对的是 Linux 平台，因此 git 和 Windows 从来不是最好的朋友，因为它一点也不像
+ Windows。GitHub 发布了GitHub for Windows，为 Windows 平台开发者提供了一个易于使用的 Git 图形客户端。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<p><span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">GitHub For Windows</span></p>
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">GitHub for Windows 是一个 Metro 风&#26684;应用程序，集成了自包含版本的 Git，bash 命令行 shell，PowerShell 的 posh-git 扩展。GitHub 为 Windows 用户提供了一个基本的图形前端去处理大部分常用版本控制任务，可以创建版本库，向本地版本库递交补丁，在本地和远程版本库之间同步。微软也通过CodePlex向开发者提供
+ git 版本控制系统，而 GitHub 创造了一个更具有吸引力的 Windows 版本。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">GitHub上已自动配置的Mac笔记本电脑，一个工具，可以转换设置Linux或Windows机器。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">BOXEN是GitHub的自动化工具，设置和配置的Mac笔记本电脑软件开发[3]或其他类型的工作，正在使用他们的开发人员，律师，设计师，付货人，等。我们的想法是准备系统以自动方式和作为无差错尽可能用最少的干预工作。根据GitHub上，与一个新的开发机器上，他的Mac系统成立，并准备在30分钟内提交代码。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">BOXEN的基础上收集了大量的几十个木偶模块，使设置的各种软件，如卡桑德拉，MongoDB中，Java软件中，Python和Ruby开发中，节点，JS，nginx的，Skype公司，甚至MINECRAFT。虽然机器上配备了一个预配置，每个用户都可以调整它的配置应有的作用。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br>
+<span style="font-size:18px; word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun"><span style="color:#ff0000; word-wrap:break-word"><span style="word-wrap:break-word; font-weight:700">【如何使用】<br style="word-wrap:break-word">
+</span></span></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">1.注册账户以及创建仓库</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">要想使用github第一步当然是注册github账号了。之后就可以创建仓库了（免费用户只能建公共仓库），Create a New Repository，填好名称后Create，之后会出现一些仓库的配置信息，这也是一个git的简单教程。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br>
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">2.安装客户端msysgit</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">github是服务端，要想在自己电脑上使用git我们还需要一个git客户端，我这里选用msysgit，这个只是提供了git的核心功能，而且是基于命令行的。如果想要图形界面的话只要在msysgit的基础上安装TortoiseGit即可。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">装完msysgit后右键鼠标会多出一些选项来，在本地仓库里右键选择Git Init Here，会多出来一个.git文件夹，这就表示本地git创建成功。右键Git Bash进入git命令行，为了把本地的仓库传到github，还需要配置ssh
+ key。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">3.配置Git</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">首先在本地创建ssh key；</span></p>
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px"></span></p>
+<pre name="code" class="plain">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</pre>
+<p></p>
+<br>
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">后面的</span><a target="_blank" target="_blank" href="mailto:your_email@youremail.com" style="word-wrap:break-word; color:rgb(51,102,153); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">your_email@youremail.com</a><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">改为你的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。成功的话会在~/下生成.ssh文件夹，进去，打开id_rsa.pub，复制里面的key。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">回到github，进入Account Settings，左边选择SSH Keys，Add SSH Key,title随便填，粘贴key。为了验证是否成功，在git bash下输入：</span></p>
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px"></span></p>
+<pre name="code" class="plain">$ ssh -T git@github.com</pre>
+<br>
+<p></p>
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">如果是第一次的会提示是否continue，输入yes就会看到：You’ve successfully authenticated, but GitHub does not provide shell access 。这就表示已成功连上github。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">接下来我们要做的就是把本地仓库传到github上去，在此之前还需要设置username和email，因为github每次commit都会记录他们。</span></p>
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px"></span></p>
+<pre name="code" class="plain">$ git config --global user.name &quot;your name&quot;
+$ git config --global user.email &quot;your_email@youremail.com&quot;</pre>
+<br>
+<p></p>
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">进入要上传的仓库，右键git bash，添加远程地址：</span></p>
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px"></span></p>
+<pre name="code" class="plain">$ git remote add origin git@github.com:yourName/yourRepo.git</pre>
+<br>
+<p></p>
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">后面的yourName和yourRepo表示你再github的用户名和刚才新建的仓库，加完之后进入.git，打开config，这里会多出一个remote “origin”内容，这就是刚才添加的远程地址，也可以直接修改config来配置远程地址。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">4.提交、上传</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">接下来在本地仓库里添加一些文件，比如README，</span></p>
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px"></span></p>
+<pre name="code" class="plain">$ git add README
+$ git commit -m &quot;first commit&quot;</pre>
+<br>
+<p></p>
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">上传到github：</span></p>
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px"></span></p>
+<pre name="code" class="plain">$ git push origin master</pre>
+<br>
+<p></p>
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">git push命令会将本地仓库推送到远程服务器。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">git pull命令则相反。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">修改完代码后，使用git status可以查看文件的差别，使用git add 添加要commit的文件，也可以用git add -i来智能添加文件。之后git commit提交本次修改，git push上传到github。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">5.gitignore文件</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">.gitignore顾名思义就是告诉git需要忽略的文件，这是一个很重要并且很实用的文件。一般我们写完代码后会执行编译、调试等操作，这期间会产生很多中间文件和可执行文件，这些都不是代码文件，是不需要git来管理的。我们在git
+ status的时候会看到很多这样的文件，如果用git add -A来添加的话会把他们都加进去，而手动一个个添加的话也太麻烦了。这时我们就需要.gitignore了。比如一般c#的项目我的.gitignore是这样写的：</span></p>
+<p><span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px"></span></p>
+<pre name="code" class="plain">bin
+*.suo
+obj</pre>
+<br>
+<p></p>
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">bin和obj是编译目录，里面都不是源代码，忽略；suo文件是vs2010的配置文件，不需要。这样你在git status的时候就只会看到源代码文件了，就可以放心的git add -A了。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">6.tag</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">我们可以创建一个tag来指向软件开发中的一个关键时期，比如版本号更新的时候可以建一个“v2.0”、“v3.1”之类的标签，这样在以后回顾的时候会比较方便。tag的使用很简单，主要操作有：查看tag、创建tag、验证tag以及共享tag，这些下面的博客中有详细讲解。</span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px"><span style="font-size:18px; word-wrap:break-word"><span style="color:#ff0000; word-wrap:break-word">【Github的相关使用文章】<br style="word-wrap:break-word">
+</span></span></span><span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">Git介绍,安装,Git&#43;Git flow使用：<a target="_blank" target="_blank" href="http://my.eoe.cn/fogs/archive/799.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/fogs/archive/799.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">Git 指令集：<a target="_blank" target="_blank" href="http://my.eoe.cn/iceskysl/archive/463.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/iceskysl/archive/463.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">在mac上安装git-flow过程：<a target="_blank" target="_blank" href="http://my.eoe.cn/iceskysl/archive/118.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/iceskysl/archive/118.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">git fetch 的简单用法:更新远程代码到本地仓库：<a target="_blank" target="_blank" href="http://my.eoe.cn/com360/archive/3533.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/com360/archive/3533.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">git 如何让单个文件回退到指定的版本：<a target="_blank" target="_blank" href="http://my.eoe.cn/com360/archive/3351.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/com360/archive/3351.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">如何使用Github上的开源项目：<a target="_blank" target="_blank" href="http://my.eoe.cn/fengyiyezi/archive/3427.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/fengyiyezi/archive/3427.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">Window（8）下安装 MSysGit 、gitflow 、GitHub：<a target="_blank" target="_blank" href="http://my.eoe.cn/sunxun/archive/158.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/sunxun/archive/158.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">git 打tag：<a target="_blank" target="_blank" href="http://my.eoe.cn/xiayang6/archive/446.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/xiayang6/archive/446.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">基于Github参与eoe的开源项目指南：<a target="_blank" target="_blank" href="http://my.eoe.cn/iceskysl/archive/3195.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/iceskysl/archive/3195.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">Git stash 使用方法：<a target="_blank" target="_blank" href="http://my.eoe.cn/sunxun/archive/190.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/sunxun/archive/190.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">Git tag的使用：<a target="_blank" target="_blank" href="http://my.eoe.cn/futurexiong/archive/1943.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/futurexiong/archive/1943.html</a></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<p><span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">大白话讲解如何给github上项目贡献代码：<a target="_blank" target="_blank" href="http://my.eoe.cn/leigo/archive/3221.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153)">http://my.eoe.cn/leigo/archive/3221.html</a></span></p>
+<p><br>
+</p>
+<p><span style="font-size:24px; word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun"><span style="color:#4169e1; word-wrap:break-word">最后再推荐几篇社区里介绍知道github使用的帖子：</span></span><br>
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px"><span style="font-size:14px; word-wrap:break-word"><span style="color:#000000; word-wrap:break-word">githup的使用</span></span></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<a target="_blank" target="_blank" href="http://www.eoeandroid.com/thread-272837-1-1.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">http://www.eoeandroid.com/thread-272837-1-1.html</a><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<strong><span style="word-wrap:break-word; font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">Eclipse上GIT插件EGIT使用手册</span><span style="font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">&nbsp;</span></strong><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<a target="_blank" target="_blank" href="http://www.eoeandroid.com/thread-273360-1-1.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">http://www.eoeandroid.com/thread-273360-1-1.html</a><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br>
+<span style="word-wrap:break-word"><strong>ubuntu下git服务器的搭建</strong></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<a target="_blank" target="_blank" href="http://www.eoeandroid.com/thread-273167-1-1.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">http://www.eoeandroid.com/thread-273167-1-1.html</a><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br>
+<span style="word-wrap:break-word"><span style="word-wrap:break-word">git ， vim ， ls 全局配置</span></span><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<a target="_blank" target="_blank" href="http://www.eoeandroid.com/thread-229638-1-1.html" class="gj_safe_a" style="word-wrap:break-word; color:rgb(51,102,153); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">http://www.eoeandroid.com/thread-229638-1-1.html</a><br style="word-wrap:break-word; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">
+<br>
+<span style="color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px">以上希望对大家学习起到积极的作用，一个好的程序猿势必要学会github的使用。如果本文大家觉得还不错，就告诉你身边的朋友吧，如果觉得看得过去那么就分享一下吧，如果觉得有待修改，那么请指出不足并且给打赏几个e币。最后感谢百度的无私支持，以及某个人的博客（说真的真的忘了他的地址是啥了），Hello
+ Github。</span><br>
+</p>
+<span style="word-wrap:break-word; font-weight:700; color:rgb(68,68,68); font-family:Tahoma,'Microsoft Yahei',Simsun; font-size:14.399999618530273px; line-height:16.799999237060547px"></span>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.11-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+        <div id="digg" ArticleId="11651229" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>18</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>3</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/hcbbt/article/details/11527565';">上一篇</span><a href="/hcbbt/article/details/11527565" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">计算机网络_学习笔记 第一章 概述</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/hcbbt/article/details/11703453';">下一篇</span><a href="/hcbbt/article/details/11703453" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">Codeforces Round #200 (Div. 2) 水题4道～</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+        <div class="similar_article"  style="display:none">
+                <h4>我的同类文章</h4>
+                <div class="similar_c"style="margin:20px 0px 0px 0px">
+                    <div class="similar_c_t">
+                                <label class="similar_cur">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('2232637','hcbbt','foot','11651229');">=====转帖收藏=====<em>（20）</em></span>
+                                </label>
+                                <label class="">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('2232641','hcbbt','foot','11651229');">+资源<em>（2）</em></span>
+                                </label>
+                    </div>
+                   
+                    <div class="similar_wrap tracking-ad" data-mod="popu_141"  style="max-height:195px;">
+                        <a href="http://blog.csdn.net" style="display:none">http://blog.csdn.net</a>
+                        <ul class="similar_list fl">                          
+                        </ul>
+
+                        <ul class="similar_list fr">                           
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+    <script  type="text/javascript">
+        $(function () {
+            GetCategoryArticles('2232637', 'hcbbt','foot','11651229');
+        });
+    </script>
+      
+</div>
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/hcbbt/svc/GetSuggestContent/11651229",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "11651229",
+                username: "",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = '【Github教程】史上最全github使用方法：github入门到精通' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+    <div id="ad_cen">        
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="71" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->    </div>  
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '11651229';
+    var commentscount = 17;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/hcbbt/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/hcbbt" target="_blank">
+    <img src="http://avatar.csdn.net/6/8/B/1_hcbbt.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/hcbbt" class="user_name" target="_blank">hcbbt</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=hcbbt','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/zhuanlandaren.png" onmouseover="m_over_m(this,2)" onmouseout="m_out_m()" alt="2" >
+                                            </a>
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>824689次</span></li>
+    <li>积分：<span>10612</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog7.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：10612 </div>
+        </span>  </li>
+    <li>排名：<span>第930名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>392篇</span></li>
+    <li>转载：<span>22篇</span></li>
+    <li>译文：<span>7篇</span></li>
+    <li>评论：<span>257条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+    <ul class="panel_head"><span>博客专栏</span></ul>
+    <ul class="panel_body" id="sp_column">
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/full-leetcode.html" target="_blank"><img src="http://img.blog.csdn.net/20151123180218005" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/full-leetcode.html" target="_blank">Leetcode 题解 (C++/Java/Python/Sql)</a>
+    <p>文章：39篇</p>
+    <span>阅读：65349</span>
+    </td>
+    </tr></table>
+    </ul>
+</div><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/hcbbt/article/category/2232545" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">=====算法相关=====</a><span>(319)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232547" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+比赛</a><span>(20)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232549" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+Codeforces</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232551" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+基础算法</a><span>(143)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232553" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+数据结构</a><span>(49)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232555" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+图论</a><span>(35)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232557" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+数论</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232559" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+DP</a><span>(59)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232561" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+几何数学</a><span>(17)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232563" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+组合数学</a><span>(19)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232565" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+博弈</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232569" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+大数系列</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232571" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+字符串系列</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232573" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+寒假刷题系列</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2904451" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+Leetcode</a><span>(41)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232577" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">=====学习笔记=====</a><span>(34)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232591" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+数据库学习</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232593" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+计算机网络学习</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232597" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+Python学习</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232599" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+Java学习</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232603" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+C#学习</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232605" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+Qt学习</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232607" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+ActionScript学习</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232609" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+Linux编程学习</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232611" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+《算法导论》习题解答</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232617" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+《C++ Primer》学习</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232619" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+其他</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232621" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">=====个人记录=====</a><span>(32)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232625" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+总结和规划</a><span>(16)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232627" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+各种环境配置</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232629" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+水货</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232631" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">======翻译======</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232633" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+C Primer Plus 5th 第四章翻译</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232635" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+外文博客翻译</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232637" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">=====转帖收藏=====</a><span>(21)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232639" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+工具</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232641" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+资源</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232643" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+算法</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2232645" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">+知识</a><span>(16)</span>
+                </li>
+                 <li>
+                    <a href="/hcbbt/article/category/2897775" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">资源</a><span>(1)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/hcbbt/article/month/2016/01">2016年01月</a><span>(1)</span></li><li><a href="/hcbbt/article/month/2015/08">2015年08月</a><span>(2)</span></li><li><a href="/hcbbt/article/month/2015/07">2015年07月</a><span>(1)</span></li><li><a href="/hcbbt/article/month/2015/03">2015年03月</a><span>(31)</span></li><li><a href="/hcbbt/article/month/2015/02">2015年02月</a><span>(7)</span></li><li><a href="/hcbbt/article/month/2015/01">2015年01月</a><span>(4)</span></li><li><a href="/hcbbt/article/month/2014/12">2014年12月</a><span>(1)</span></li><li><a href="/hcbbt/article/month/2014/10">2014年10月</a><span>(1)</span></li><li><a href="/hcbbt/article/month/2014/09">2014年09月</a><span>(14)</span></li><li><a href="/hcbbt/article/month/2014/08">2014年08月</a><span>(33)</span></li><li><a href="/hcbbt/article/month/2014/07">2014年07月</a><span>(9)</span></li><li><a href="/hcbbt/article/month/2014/06">2014年06月</a><span>(10)</span></li><li><a href="/hcbbt/article/month/2014/05">2014年05月</a><span>(13)</span></li><li><a href="/hcbbt/article/month/2014/04">2014年04月</a><span>(5)</span></li><li><a href="/hcbbt/article/month/2014/03">2014年03月</a><span>(5)</span></li><li><a href="/hcbbt/article/month/2014/02">2014年02月</a><span>(6)</span></li><li><a href="/hcbbt/article/month/2014/01">2014年01月</a><span>(8)</span></li><li><a href="/hcbbt/article/month/2013/12">2013年12月</a><span>(13)</span></li><li><a href="/hcbbt/article/month/2013/11">2013年11月</a><span>(36)</span></li><li><a href="/hcbbt/article/month/2013/10">2013年10月</a><span>(12)</span></li><li><a href="/hcbbt/article/month/2013/09">2013年09月</a><span>(48)</span></li><li><a href="/hcbbt/article/month/2013/08">2013年08月</a><span>(29)</span></li><li><a href="/hcbbt/article/month/2013/07">2013年07月</a><span>(50)</span></li><li><a href="/hcbbt/article/month/2013/06">2013年06月</a><span>(12)</span></li><li><a href="/hcbbt/article/month/2013/05">2013年05月</a><span>(12)</span></li><li><a href="/hcbbt/article/month/2013/04">2013年04月</a><span>(16)</span></li><li><a href="/hcbbt/article/month/2013/03">2013年03月</a><span>(17)</span></li><li><a href="/hcbbt/article/month/2013/02">2013年02月</a><span>(17)</span></li><li><a href="/hcbbt/article/month/2013/01">2013年01月</a><span>(9)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/hcbbt/article/details/11651229" title="【Github教程】史上最全github使用方法：github入门到精通">【Github教程】史上最全github使用方法：github入门到精通</a><span>(217277)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/43865787" title="无责任共享 Coursera、Udacity 等课程视频【百度云】">无责任共享 Coursera、Udacity 等课程视频【百度云】</a><span>(16277)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/43966331" title="[LeetCode] Leetcode 题解索引 (C++/Java/Python/Sql)">[LeetCode] Leetcode 题解索引 (C++/Java/Python/Sql)</a><span>(12691)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/12408191" title="Windows、Ubuntu双系统重装windows系统后grub引导的修复及默认启动项的修改">Windows、Ubuntu双系统重装windows系统后grub引导的修复及默认启动项的修改</a><span>(12253)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/42072545" title="[ppurl]从”皮皮书屋”下载电子书的姿势">[ppurl]从”皮皮书屋”下载电子书的姿势</a><span>(11706)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/10454947" title="六种姿势拿下连续子序列最大和问题，附伪代码（以HDU 1003 1231为例）">六种姿势拿下连续子序列最大和问题，附伪代码（以HDU 1003 1231为例）</a><span>(8389)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/21259651" title="记Win8安装Kubuntu双系统的那些事...">记Win8安装Kubuntu双系统的那些事...</a><span>(4978)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/43966403" title="[LeetCode] 001. Two Sum (Medium) (C++/Java/Python)">[LeetCode] 001. Two Sum (Medium) (C++/Java/Python)</a><span>(4857)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/11861377" title="UVA 674 Coin Change 换硬币 经典dp入门题">UVA 674 Coin Change 换硬币 经典dp入门题</a><span>(4643)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/18271491" title="《计算机网络》第五版 复习笔记">《计算机网络》第五版 复习笔记</a><span>(4579)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/hcbbt/article/details/11651229" title="【Github教程】史上最全github使用方法：github入门到精通">【Github教程】史上最全github使用方法：github入门到精通</a><span>(17)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/22626291" title="校赛随笔">校赛随笔</a><span>(17)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/42072545" title="[ppurl]从”皮皮书屋”下载电子书的姿势">[ppurl]从”皮皮书屋”下载电子书的姿势</a><span>(16)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/10454947" title="六种姿势拿下连续子序列最大和问题，附伪代码（以HDU 1003 1231为例）">六种姿势拿下连续子序列最大和问题，附伪代码（以HDU 1003 1231为例）</a><span>(14)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/17853833" title="2013年末总结">2013年末总结</a><span>(9)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/9200731" title="Codeforces Round #190 (Div. 2) 水果俩水题">Codeforces Round #190 (Div. 2) 水果俩水题</a><span>(9)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/8548425" title="创建了个博客了。。。">创建了个博客了。。。</a><span>(8)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/8575392" title="无聊地分析下某网站的注册验证码">无聊地分析下某网站的注册验证码</a><span>(8)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/27802769" title="[May]总结和规划">[May]总结和规划</a><span>(8)</span>
+</li>
+<li>
+<a href="/hcbbt/article/details/43865787" title="无责任共享 Coursera、Udacity 等课程视频【百度云】">无责任共享 Coursera、Udacity 等课程视频【百度云】</a><span>(7)</span>
+</li>
+</ul>
+</div>
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/hcbbt/article/details/43966461#comments">[LeetCode] 002. Add Two Numbers (Medium) (C++/Java/Python)</a>
+    <p style="margin:0px;"><a href="/hcbbt" class="user_name">hcbbt</a>:
+@heart_2015:首先，cur 指向 ret，也就是最开始 new 的第一个节点，然后 l1,...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/hcbbt/article/details/43966461#comments">[LeetCode] 002. Add Two Numbers (Medium) (C++/Java/Python)</a>
+    <p style="margin:0px;"><a href="/hcbbt" class="user_name">hcbbt</a>:
+@heart_2015:关于 Java 的引用传递，可以看看这篇：yq。aliyun。com/art...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/hcbbt/article/details/43966461#comments">[LeetCode] 002. Add Two Numbers (Medium) (C++/Java/Python)</a>
+    <p style="margin:0px;"><a href="/heart_2015" class="user_name">heart_2015</a>:
+博主，我通过这个题目发现我的数据结构基础方面的问题，查阅了相关资料，一知半解，还是想通过直接请教您的...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/hcbbt/article/details/43966513#comments">[LeetCode] 003. Longest Substring Without Repeating Characters (Medium) (C++/Java/Python)</a>
+    <p style="margin:0px;"><a href="/heart_2015" class="user_name">heart_2015</a>:
+为什么需要            if (res &lt; i - left + 1)          ...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/hcbbt/article/details/43966513#comments">[LeetCode] 002. Add Two Numbers (Medium) (C++/Java/Python)</a>
+    <p style="margin:0px;"><a href="/hcbbt" class="user_name">hcbbt</a>:
+@heart_2015:Java 里除了一些基本类型是值传递外，其它都是地址传递。就跟 C 里的指针...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/hcbbt/article/details/43966513#comments">[LeetCode] 002. Add Two Numbers (Medium) (C++/Java/Python)</a>
+    <p style="margin:0px;"><a href="/heart_2015" class="user_name">heart_2015</a>:
+能解释下为什么要用ListNode cur = ret;  吗？？？在Java语言中~~~~实在有些...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/hcbbt/article/details/11651229#comments">【Github教程】史上最全github使用方法：github入门到精通</a>
+    <p style="margin:0px;"><a href="/u012399969" class="user_name">u012399969</a>:
+@huanggx:人家标明转载了,呵呵
+    </p>
+    </li>
+    <li>
+   
+         <a href="/hcbbt/article/details/38145759#comments">HDU 2089 不要62(数位DP，三种姿势)</a>
+    <p style="margin:0px;"><a href="/hcbbt" class="user_name">hcbbt</a>:
+@u014247806:Orz，数位你不是会吗？
+    </p>
+    </li>
+    <li>
+   
+         <a href="/hcbbt/article/details/38145759#comments">HDU 2089 不要62(数位DP，三种姿势)</a>
+    <p style="margin:0px;"><a href="/u014247806" class="user_name">u014247806</a>:
+聚聚还有上 CSDN 啊。。最近打算学学数位DP了Orz
+    </p>
+    </li>
+    <li>
+   
+         <a href="/hcbbt/article/details/43865787#comments">无责任共享 Coursera、Udacity 等课程视频【百度云】</a>
+    <p style="margin:0px;"><a href="/dream130426" class="user_name">dream130426</a>:
+赞
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+ </div>   
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1405862"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>
+     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+</body>
+</html>   
+ 
